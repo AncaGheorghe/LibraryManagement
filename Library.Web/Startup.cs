@@ -2,6 +2,7 @@
 using Library.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,9 @@ namespace Library.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+			services.AddIdentity<IdentityUser, IdentityRole>()
+				.AddEntityFrameworkStores<LibraryDbContext>();
+			
             services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddScoped<ILibraryCardService, LibraryCardService>();
@@ -39,6 +43,7 @@ namespace Library.Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+			app.UseIdentity();
 
             if (env.IsDevelopment())
             {
