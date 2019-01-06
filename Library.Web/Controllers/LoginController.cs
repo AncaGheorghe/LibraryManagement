@@ -72,7 +72,11 @@ namespace Library.Web.Controllers
 			return View(loginViewModel);
 		}
 
-		public ViewResult LoggedIn() => View();
+		public ViewResult LoggedIn()
+		{
+			return View(); 
+		}
+	
 
 
 		[HttpPost]

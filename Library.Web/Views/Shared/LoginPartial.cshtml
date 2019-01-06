@@ -7,15 +7,17 @@
 {
 	<form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"
 		  method="post" class="navbar-right">
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-		</ul>
+		<nav class="mdl-navigation mdl-layout--large-screen-only">
+			<a class="mdl-navigation__link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+		</nav>
 	</form>
 }
 else
 {
-	<ul class="nav navbar-nav navbar-right">
-		<li><a id="registerLink" asp-controller="Login" asp-action="Register"> Register </a></li>
-		<li><a id="loginLink" asp-controller="Login" asp-action="Login"> Log in </a></li>
-	</ul>
+	<nav class="mdl-navigation mdl-layout--large-screen-only">
+		<a class="mdl-navigation__link" id="registerLink" asp-controller="Login" asp-action="Register"> Register </a>
+		<a class="mdl-navigation__link" id="loginLink" asp-controller="Login" asp-action="Login"> Log in </a>
+
+	
+	</nav>
 }
